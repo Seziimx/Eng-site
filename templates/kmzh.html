@@ -19,5 +19,34 @@
      📥 Құжатты ашу
   </a>
 </div>
+ <div class="bg-white rounded-xl shadow p-4">
+    <h2 class="text-2xl font-semibold mb-4">📤 Өз ҚМЖ-ңізді жүктеңіз</h2>
+
+    <form action="/kmzh" method="post" enctype="multipart/form-data" class="space-y-4 mb-6">
+      <input type="file" name="file" accept=".doc,.docx,.pdf" required
+             class="block w-full text-sm text-gray-700 border border-gray-300 rounded-lg p-2">
+      <button type="submit"
+              class="inline-flex items-center gap-2 px-5 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">
+        📤 Жүктеу
+      </button>
+    </form>
+
+    <h2 class="text-xl font-bold mb-4">📄 Жүктелген ҚМЖ-лер:</h2>
+
+    {% if files %}
+      <ul class="space-y-2 text-left">
+        {% for file in files %}
+          <li>
+            <a href="{{ url_for('static', filename='uploads/' + file) }}"
+               class="text-blue-600 hover:underline"
+               target="_blank">📑 {{ file }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-gray-500">Әзірге файлдар жоқ.</p>
+    {% endif %}
+  </div>
+
 </section>
 {% endblock %}

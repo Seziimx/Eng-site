@@ -10,7 +10,11 @@
 
 <!-- Навигация -->
 <nav class="bg-blue-600 text-white p-4 flex justify-between items-center">
-  <div class="font-bold text-lg">Қ. Жұбанов Университеті</div>
+  <div class="flex items-center space-x-3">
+    <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Logo" class="h-12 w-auto">
+
+    <div class="font-bold text-lg">Қ. Жұбанов Университеті</div>
+  </div>
   <div class="space-x-4 text-sm">
     <a href="/" class="hover:underline">Басты бет</a>
     <a href="/ktp" class="hover:underline">КТП</a>
