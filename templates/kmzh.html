@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}ҚМЖ{% endblock %}
+
+{% block content %}
+<section class="text-center fade-in p-10">
+  <h1 class="text-4xl font-extrabold mb-6 text-blue-700">Қысқа мерзімді жоспарлар</h1>
+  <p class="text-lg text-gray-700 mb-10">ҚМЖ үлгілерін жүктеп алыңыз:</p>
+
+ <div class="bg-white rounded-xl shadow p-4">
+  <h2 class="text-2xl font-semibold mb-4">ҚМЖ №1</h2>
+
+  <!-- Google Docs preview -->
+  <iframe src="https://docs.google.com/document/d/1nP2vZVpO-JVA12rGghKJgwFzvzShP8VL/preview" 
+          width="100%" height="400" class="rounded-lg mb-4"></iframe>
+  <a href="https://docs.google.com/document/d/1nP2vZVpO-JVA12rGghKJgwFzvzShP8VL/edit?usp=sharing" 
+     target="_blank"
+     class="inline-flex items-center gap-2 px-5 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition">
+     📥 Құжатты ашу
+  </a>
+</div>
+</section>
+{% endblock %}

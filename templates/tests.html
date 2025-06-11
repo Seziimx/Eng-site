@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Ағылшын тесттері{% endblock %}
+
+{% block content %}
+<section class="p-10 text-center space-y-8">
+  <h1 class="text-4xl font-extrabold text-blue-700">Ағылшын тілінен тесттер</h1>
+  <p class="text-lg text-gray-700">Төмендегі платформалар арқылы өз біліміңізді тексеріп көріңіз:</p>
+
+  <!-- Google Forms Block -->
+  <div class="bg-white rounded-xl shadow p-6 max-w-5xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-4">📋 Grammar Pre‑Test (Google Forms)</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSds1AybIpl8hfBuBFb4UVjdn1pn1G3Re2jbMUe4c4ArlN6agw/viewform?embedded=true"
+            width="100%" height="500" class="rounded-lg mb-4"></iframe>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSds1AybIpl8hfBuBFb4UVjdn1pn1G3Re2jbMUe4c4ArlN6agw/viewform"
+       target="_blank"
+       class="inline-flex items-center gap-2 px-5 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition">
+      📥 Форманы толық ашу
+    </a>
+  </div>
+
+  <!-- Bottom 2 Tests -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+    <!-- Quizizz Test -->
+    <div class="bg-white rounded-xl shadow p-6 flex flex-col justify-between">
+      <h2 class="text-2xl font-semibold mb-4">🧠 Quizizz English Quiz</h2>
+      <p class="text-gray-600 mb-6">Quizizz арқылы ағылшын тілінен интерактивті тест тапсырыңыз:</p>
+      <a href="https://quizizz.com/join?gc=70816154" target="_blank"
+         class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-purple-500 text-white rounded-lg shadow hover:bg-purple-600 transition">
+        🚀 Quizizz ашу
+      </a>
+    </div>
+
+    <!-- Flask MyTest -->
+    <div class="bg-white rounded-xl shadow p-6 flex flex-col justify-between">
+      <h2 class="text-2xl font-semibold mb-4">💻 Тест</h2>
+      <p class="text-gray-600 mb-6">Платформамыздағы авторлық тестті көріп көріңіз:</p>
+      <a href="{{ url_for('mytest') }}"
+         class="inline-flex items-center justify-center gap-2 px-5 py-3 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition">
+        📊 Тестті бастау
+      </a>
+    </div>
+
+  </div>
+
+</section>
+{% endblock %}

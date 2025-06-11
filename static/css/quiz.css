@@ -1,0 +1,78 @@
+.btn-option {
+  padding: 0.75rem 1.5rem;
+  background-color: #3B82F6;
+  color: white;
+  border: 2px solid #3B82F6;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-option:hover {
+  background-color: #2563EB;
+  transform: scale(1.05);
+}
+
+.btn-option.selected {
+  box-shadow: 0 0 0 3px #E0E7FF;
+  background-color: #6366F1;
+  border-color: #6366F1;
+}
+
+.progress-bar-wrapper {
+  width: 100%;
+  background-color: #E5E7EB;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  height: 1rem;
+  margin-bottom: 2rem;
+}
+
+#progress-bar {
+  height: 100%;
+  background-color: #3B82F6;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+#result {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.5s ease-in-out;
+}
+
+#result.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.question-block {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s ease;
+}
+
+.question-block.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.restart-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #F59E0B;
+  color: white;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.restart-btn:hover {
+  background-color: #D97706;
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
+}

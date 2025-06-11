@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}Ағылшын тесті{% endblock %}
+
+{% block extra_head %}
+<style>
+  .question-card {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  .progress-bar {
+    transition: width 0.4s ease;
+  }
+  .option-btn {
+    transition: all 0.3s ease;
+  }
+  .option-btn.selected {
+    background-color: #DBEAFE;
+    border-color: #2563EB;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="p-8 max-w-4xl mx-auto space-y-8">
+
+  <div class="w-full bg-gray-300 rounded-full h-3 overflow-hidden">
+    <div id="progress" class="progress-bar bg-blue-500 h-3 w-0"></div>
+  </div>
+
+  <div id="quiz" class="space-y-6"></div>
+
+  <button id="nextBtn"
+          onclick="nextQuestion()"
+          class="w-full py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition hidden">
+    Келесі сұрақ
+  </button>
+
+  <div id="result" class="text-3xl font-bold text-center text-green-600 hidden"></div>
+
+</section>
+
+<script>
+  const questions = {{ questions | tojson }};
+  let current = 0;
+  let score = 0;
+  let selectedAnswer = '';
+
+  function loadQuestion() {
+    const q = questions[current];
+    document.getElementById('quiz').innerHTML = `
+      <div class="question-card space-y-4">
+        <p class="text-2xl font-semibold">${current+1}. ${q.question}</p>
+        <div class="grid grid-cols-1 gap-3">
+          ${q.options.map(opt => `
+            <button onclick="selectAnswer(this, '${opt}')"
+              class="option-btn border border-gray-300 rounded-lg py-3 px-5 text-lg text-left hover:bg-blue-50 transition">
+              ${opt}
+            </button>`).join('')}
+        </div>
+      </div>
+    `;
+    document.getElementById('nextBtn').classList.add('hidden');
+  }
+
+  function selectAnswer(btn, answer) {
+    document.querySelectorAll('.option-btn').forEach(b => {
+      b.classList.remove('selected');
+    });
+    btn.classList.add('selected');
+    selectedAnswer = answer;
+    document.getElementById('nextBtn').classList.remove('hidden');
+  }
+
+  function nextQuestion() {
+    if (selectedAnswer === questions[current].answer) score++;
+
+    current++;
+    selectedAnswer = '';
+
+    document.getElementById('progress').style.width = `${(current/questions.length)*100}%`;
+
+    if (current < questions.length) {
+      loadQuestion();
+    } else {
+      document.getElementById('quiz').classList.add('hidden');
+      document.getElementById('nextBtn').classList.add('hidden');
+      document.getElementById('result').innerHTML = `Нәтиже: ${score}/${questions.length} дұрыс 👏`;
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('progress').style.width = `100%`;
+    }
+  }
+
+  loadQuestion();
+</script>
+{% endblock %}

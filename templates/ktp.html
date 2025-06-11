@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}ҚМЖ{% endblock %}
+
+{% block extra_head %}
+<style>
+  .fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="text-center fade-in p-10">
+  <h1 class="text-4xl font-extrabold mb-6 text-blue-700">Қысқа мерзімді жоспарлар</h1>
+  <p class="text-lg text-gray-700 mb-10">ҚМЖ үлгілерін жүктеп алыңыз:</p>
+
+  <div class="max-w-3xl mx-auto">
+    <div class="bg-white rounded-xl shadow p-4 text-center">
+      <h2 class="text-2xl font-semibold mb-4">КТП №1</h2>
+
+      <iframe src="https://docs.google.com/document/d/1nP2vZVpO-JVA12rGghKJgwFzvzShP8VL/preview" 
+              width="100%" height="400" class="rounded-lg mb-4"></iframe>
+
+      <a href="https://docs.google.com/document/d/1nP2vZVpO-JVA12rGghKJgwFzvzShP8VL/edit?usp=sharing" 
+         target="_blank"
+         class="inline-flex items-center gap-2 px-5 py-2 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition">
+         📥 Құжатты ашу
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

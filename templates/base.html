@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Қ. Жұбанов Университеті{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+
+<!-- Навигация -->
+<nav class="bg-blue-600 text-white p-4 flex justify-between items-center">
+  <div class="font-bold text-lg">Қ. Жұбанов Университеті</div>
+  <div class="space-x-4 text-sm">
+    <a href="/" class="hover:underline">Басты бет</a>
+    <a href="/ktp" class="hover:underline">КТП</a>
+    <a href="/kmzh" class="hover:underline">ҚМЖ</a>
+    <a href="/keepingfit" class="hover:underline">Keeping Fit</a>
+    <a href="/tests" class="hover:underline">Тесттер</a>
+    <a href="/about" class="hover:underline">Біз туралы</a>
+  </div>
+</nav>
+
+<!-- Контент -->
+<section class="p-10 flex-1">
+  {% block content %}{% endblock %}
+</section>
+
+<!-- Футер -->
+<footer class="bg-blue-600 text-white text-center p-4 mt-10">
+  <p>© 2025 Қ. Жұбанов Университеті. Барлық құқықтар қорғалған.</p>
+  <p class="text-sm mt-2">Made with ❤️ by Gulim, Beibit, Erkenazym</p>
+</footer>
+
+</body>
+</html>
